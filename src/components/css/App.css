@@ -1,0 +1,8 @@
+#root > div {
+    margin-top: 30px;
+}
+
+body {
+    background: rgb(63,168,238);
+    background: radial-gradient(circle, rgba(63,168,238,1) 0%, rgba(218,148,233,1) 100%);
+}

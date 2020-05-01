@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import ImageList from './ImageList';
 import unsplash from '../api/unsplash';
+import './css/App.css';
 
 class App extends React.Component {
     state = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/SearchBar.css';
 
 class SearchBar extends React.Component {
     state = { term: '' };
@@ -14,10 +15,11 @@ class SearchBar extends React.Component {
             <div className="ui segment">
                 <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
-                        <label>Image Search</label>
+                        <h1>Image Search</h1>
                     </div>
                     {/* every single time we enter in the input, we will update the state */}
                     <input 
+                        className="input-bar"
                         type="text" 
                         value={this.state.term} 
                         onChange={(e) => this.setState({ term: e.target.value })}>
