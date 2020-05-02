@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+// DEF: Acess Key of Unsplash API
 const ACCESS_KEY = "";
 
-// create an instance of the axios client
+// DEF: Create instance of axio client
+//      Setup configurations
 export default axios.create({
     baseURL: "https://api.unsplash.com",
     headers: {

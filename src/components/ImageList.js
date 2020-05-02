@@ -1,10 +1,12 @@
 import React from 'react';
-import './css/ImageList.css';
 import ImageCard from './ImageCard';
+import './css/ImageList.css';
 
+// DEF: Functional component for Image List
 const ImageList = (props) => {
-    // we want to manipulate the data we get into the format we want
-    // we only want the id, image url, and description
+
+    // DEF: Map each of the images into an Image Card 
+    //      Define the props passed down -- key and the image
     const images = props.images.map((image) => {
         return <ImageCard key={image.id} image={image}/>
     });

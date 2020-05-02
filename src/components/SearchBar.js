@@ -1,15 +1,22 @@
 import React from 'react';
 import './css/SearchBar.css';
 
+// DEF: Class component SearchBar which will represent the user input bar
 class SearchBar extends React.Component {
+
+    // DEF: Define the state which will be kept on our component
     state = { term: '' };
 
-    // don't let form submit
+    // DEF: Prevent the form from submitting
+    //      Invoke the callback function passed down from the App component
+    //      Pulls in the event object
+    //      This is a callback function
     onFormSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit(this.state.term); // callback function
+        this.props.onSubmit(this.state.term);
     }
 
+    // DEF: Every single time we enter input into the SearchBar, we will update the state
     render() {
         return (
             <div className="ui segment">
@@ -17,11 +24,10 @@ class SearchBar extends React.Component {
                     <div className="field">
                         <h1>Image Search</h1>
                     </div>
-                    {/* every single time we enter in the input, we will update the state */}
-                    <input 
+                    <input
                         className="input-bar"
-                        type="text" 
-                        value={this.state.term} 
+                        type="text"
+                        value={this.state.term}
                         onChange={(e) => this.setState({ term: e.target.value })}>
                     </input>
                 </form>

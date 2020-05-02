@@ -1,6 +1,9 @@
 import React from 'react';
 
+// Class component ImageCard
 class ImageCard extends React.Component {
+
+    // DEF: Initialize values for the state
     constructor(props) {
         super(props);
 
@@ -8,15 +11,18 @@ class ImageCard extends React.Component {
         this.imageRef = React.createRef();
     }
 
+    // DEF: Attaches ref to DOM for when images load and invoke the setSpans callback
+    //      functions. This will allow us to grab the image height to set the size of
+    //      their container. Will execute anytime the image loads or downloads successfully
     componentDidMount() {
-        // anytime the image loads or download successfully, we can get the image height
-        // callback to event listener
         this.imageRef.current.addEventListener('load', this.setSpans);
 
     }
 
-    // callback needs to be bound
-    // using arrow function to make sure context passes
+    // DEF: Sets the state of the spans height for the images based on the
+    //      ref to the DOM element tied in componentDidMount
+    //      Uses arrow function to make sure that the context passes over for `this`
+    //      This is a callback function
     setSpans = () => {
         const height = this.imageRef.current.clientHeight;
         const spans = Math.ceil(height / 10);
@@ -29,10 +35,6 @@ class ImageCard extends React.Component {
 
         return (
             <div style={{gridRowEnd: `span ${this.state.spans}`}}>
-              
-                {/* <div>
-                    { user.instagram}
-                </div> */}
                 <img ref={this.imageRef} alt={description} src={urls.regular} />
             </div>
         )

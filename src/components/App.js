@@ -5,30 +5,33 @@ import unsplash from '../api/unsplash';
 import './css/App.css';
 
 class App extends React.Component {
+    
+    // DEF: Set state of the component
     state = {
         images: []
     };
-
-    // callback function that will pull in the value passed in
-    // GET request over to unsplash API
-    // arrow function to pass over context for `this`
+    
+    // DEF: Sends a GET request to the Unsplash API based on the search term
+    //      that was entered by the user. We pass in our axios configurations
+    //      in our request
+    //      This is the main function of our application
+    //      This is an asychronous callback function
+    //      We use an arrow function to passover the context used in `this`
     onSearchSubmit = async term => {
         const response = await unsplash.get("/search/photos", {
             params: { query: term }
         });
 
-        console.log(response);
-
-        // context is in SearchBar instance
+        // DEF: Set the state of the list of images returned by the response
         this.setState({
             images: response.data.results
         })
     }
 
+    // `this.onSearchSubmit` will only be invoked when the form has been submitted
     render() {
         return (
             <div className="ui container" >
-                {/* run this function when this form has been submitted  */}
                 <SearchBar onSubmit={this.onSearchSubmit} />
                 <ImageList images={this.state.images} />
             </div>
